@@ -11,10 +11,10 @@ import java.sql.*;
 public class MySqlJDBC {
 
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://localhost:3306/test?serverTimezone=Hongkong&useUnicode=true&characterEncoding=utf8&useSSL=false";
+    static final String DB_URL = "jdbc:mysql://localhost:3306/sso";
 
     static final String USER = "root";
-    static final String PASS = "root";
+    static final String PASS = "admin";
 
     public static void main(String[] args) {
 //        Connection conn = getConn();
