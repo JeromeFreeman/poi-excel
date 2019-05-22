@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 
 /**
  * 
@@ -28,6 +29,6 @@ public abstract class AbstractExcelUtil<T> implements IExcelUtil<T>{
 	* @return  List<?> 返回类型  
 	* @throws
 	 */
-	public abstract List<T> dispatch(HSSFSheet sheet);
+	public abstract List<T> dispatch(XSSFSheet sheet);
 
 }

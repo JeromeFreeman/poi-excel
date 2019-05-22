@@ -10,6 +10,8 @@ import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.hssf.util.HSSFColor;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
  * 
@@ -28,13 +30,13 @@ public abstract class AbstractExcelUtils<T> extends AbstractExcelUtil<T> {
 	public List<T> importExcel(String sheetName, InputStream input) {
 		List<T> list = null;
         try {
-			HSSFWorkbook workbook = new HSSFWorkbook(input);  
-			HSSFSheet sheet = workbook.getSheet(sheetName);  
+			XSSFWorkbook workbook = new XSSFWorkbook(input);
+			XSSFSheet sheet = workbook.getSheet(sheetName);
 			if (!sheetName.trim().equals("")) {  
-			    sheet = workbook.getSheet(sheetName);// 如果指定sheet名,则取指定sheet中的内容.  
+			    sheet = workbook.getSheet(sheetName);// 如果指定sheet名,则取指定sheet中的内容.
 			}
-			if (sheet == null) {  
-			    sheet = workbook.getSheetAt(0); // 如果传入的sheet名不存在则默认指向第1个sheet.  
+			if (sheet == null) {
+			    sheet = workbook.getSheetAt(0); // 如果传入的sheet名不存在则默认指向第1个sheet.
 			}		
 			list = dispatch(sheet);
 		} catch (IOException e) {

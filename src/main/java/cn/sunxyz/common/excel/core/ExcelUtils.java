@@ -13,6 +13,7 @@ import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.util.CellRangeAddress;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -212,7 +213,7 @@ public class ExcelUtils<T> extends AbstractExcelUtilss<T>{
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<T> dispatch(HSSFSheet sheet) {
+	public List<T> dispatch(XSSFSheet sheet) {
 		int rows = sheet.getPhysicalNumberOfRows();
 		List<Integer> idCols = getIdCols(clazz,null);
 		List<Class<?>> clazzs = getAllClass(clazz,null);
@@ -604,7 +605,7 @@ public class ExcelUtils<T> extends AbstractExcelUtilss<T>{
 	* @return  List<List<String>> excel元组 
 	* @throws
 	 */
-	private Map<String,String> getTuple(HSSFSheet sheet,int rows){
+	private Map<String,String> getTuple(XSSFSheet sheet,int rows){
 		
 		Map<String,String> tuples = new HashMap<>();
 		//获取列
